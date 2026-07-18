@@ -1,6 +1,6 @@
-# ForgeDev Hospitality (Vue)
+# ForgeDev Hospitality Vue
 
-> Hotel/property booking platform — Vue/Nuxt frontend
+> Vue 3 frontend for the Hospitality domain — hotel booking platform with search, availability calendar, and reservation flow
 
 **Part of [ForgeDev](https://forgedev.dev)** — Structured work simulation for junior developers.
 
@@ -30,7 +30,56 @@ Contributions are welcome! Please read:
 
 ## 🏗 Project Structure
 
-> TODO: Document the project structure once the codebase is built.
+```
+forgedev-hospitality-vue/
+├── src/
+│   ├── api/
+│   │   └── index.ts            # Axios API module (properties, rooms, bookings, guests, pricing, amenities)
+│   ├── assets/
+│   │   └── main.css            # Global styles
+│   ├── components/
+│   │   ├── PropertyCard.vue    # Hotel property card
+│   │   ├── BookingCalendar.vue # Monthly calendar with booked dates
+│   │   ├── DateRangePicker.vue # Check-in / check-out date picker
+│   │   ├── GuestFilter.vue     # Guest count selector
+│   │   ├── BookingForm.vue     # Guest info + booking confirmation form
+│   │   └── AmenitiesFilter.vue # Amenity checkbox filter
+│   ├── router/
+│   │   └── index.ts            # Vue Router config
+│   ├── stores/
+│   │   ├── properties.ts       # Properties store (list, search, CRUD)
+│   │   ├── bookings.ts         # Bookings store (create, list, cancel)
+│   │   └── search.ts           # Search filter state (dates, guests, city, amenities)
+│   ├── views/
+│   │   ├── SearchView.vue      # Property search with filters
+│   │   ├── PropertyDetailView.vue # Property details + room list
+│   │   ├── BookingFlowView.vue # Booking flow (room → guest info → confirm)
+│   │   ├── MyBookingsView.vue  # User's bookings list + cancel
+│   │   └── AdminDashboardView.vue # Property management dashboard
+│   ├── App.vue                 # Root component with navbar
+│   └── main.ts                 # App entry point
+├── package.json
+├── vite.config.ts
+└── tsconfig.json
+```
+
+### Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start dev server (proxies /api to localhost:3000)
+npm run dev
+```
+
+### Key Features
+
+- **Search** with date, guest, city, star rating, and amenity filters
+- **Property detail** with room list and availability
+- **Booking flow** with guest information form
+- **My Bookings** list with cancel functionality
+- **Admin dashboard** for property, amenity, and pricing rule management
 
 ---
 
@@ -44,8 +93,9 @@ Contributions are welcome! Please read:
 
 ## 📁 Related Repositories
 
-Part of the **Hospitality** domain. This frontend connects to:
+Vue frontend for the **Hospitality** domain. Connects to:
 
 | Repo | Role |
 |------|------|
 | forgedev-hospitality-backend | Backend API |
+| forgedev-hospitality-react | React frontend (same domain) |
